@@ -4,13 +4,13 @@ import GlassCard from '../components/GlassCard';
 import { Globe, Mail } from 'lucide-react';
 
 const team = [
-  { name: 'Jay', role: 'CEO & Founder', creds: 'CPC., CCS , LSSBB', img: '/team/Jayaprathap (AKA) Jay.jpeg' },
-  { name: 'Senthil Kumar (AKA) Sento', role: 'Head RCM services & Dental Billing', img: '/team/Senthil Kumar.jpeg' },
-  { name: 'Radhika Manokaran', role: 'Manager - Medical Coding', img: '/team/Radhika Manokaran.jpeg' },
-  { name: 'Sofia John', role: 'Human Resources (HR)', img: '/team/Sofia Veronica John.jpeg' },
-  { name: 'Mahendran', role: 'Lead Medical Records Sorting Services', img: '/team/Mahendran.jpeg' },
-  { name: 'Arul Saleth', role: 'Manager - IT', img: '/team/Arulsaleth.G.jpeg' },
-  { name: 'Ananthakumar', role: 'Head - Admin', img: '/team/Ananthakumar.jpeg' },
+  { name: 'Jay', role: 'CEO & Founder', creds: 'CPC., CCS , LSSBB', img: '/team/Jayaprathap (AKA) Jay.png' },
+  { name: 'Senthil Kumar (AKA) Sento', role: 'Head RCM services & Dental Billing', img: '/team/Senthil.png' },
+  { name: 'Radhika Manokaran', role: 'Manager - Medical Coding', img: '/team/Radhika.png' },
+  { name: 'Sofia John', role: 'Human Resources (HR)', img: '/team/Sofia.png' },
+  { name: 'Arul.Saleth', role: 'IT Manager', img: '/team/Arul.Saleth.png' },
+  { name: 'Ananthakumar', role: 'Head - Admin', img: '/team/Ananthakumar.png' },
+  { name: 'Mahendran', role: 'Lead Medical Records Sorting Services', img: '/team/mahendran.png' },
 ];
 
 export default function Team() {
@@ -31,8 +31,8 @@ export default function Team() {
         <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-8">
           {team.map((member, i) => (
             <div key={i} className="bg-white rounded-2xl md:rounded-3xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
-              <div className="aspect-[4/5] w-full overflow-hidden bg-gray-50 relative">
-                <img src={member.img} alt={member.name} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+              <div className="aspect-[4/5] w-full overflow-hidden bg-gray-50 relative flex items-end justify-center px-4 pt-6">
+                <img src={member.img} alt={member.name} className="w-full h-full object-contain object-bottom group-hover:scale-110 transition-transform duration-500 origin-bottom" />
               </div>
               <div className="p-3 md:p-6 text-center border-t border-gray-100 bg-white flex-1 flex flex-col justify-center">
                 <h3 className="text-sm md:text-lg font-bold text-gray-900 mb-1 leading-tight">{member.name}</h3>
