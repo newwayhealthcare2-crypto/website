@@ -44,7 +44,7 @@ export default function Gallery() {
             <p className="text-gray-600">We are currently updating our gallery with new photos. Check back soon!</p>
           </GlassCard>
         ) : (
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+          <div className="columns-2 lg:columns-3 gap-4 sm:gap-6 space-y-4 sm:space-y-6">
             {images.map((src, i) => (
               <div key={i} className="break-inside-avoid">
                 <div className="rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer bg-gray-50 border border-gray-100">
