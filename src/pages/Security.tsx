@@ -84,6 +84,83 @@ export default function Security() {
           </GlassCard>
         </div>
       </div>
+
+      {/* Certifications & Achievements Section */}
+      <div className="container mx-auto px-6 lg:px-12 mt-32 mb-20 text-center max-w-4xl">
+        <h2 className="text-4xl lg:text-5xl font-serif font-bold text-gray-900 mb-16 leading-tight">
+          Certifications &<br />Achievements
+        </h2>
+        
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-12 lg:gap-16 items-end justify-center">
+          
+          {/* ISO 9001 */}
+          <div className="flex flex-col items-center">
+            <div className="w-28 h-28 rounded-full border-[6px] border-blue-600 flex items-center justify-center mb-6 shadow-sm">
+              <div className="text-center">
+                <p className="text-[10px] font-bold text-blue-600 uppercase tracking-widest leading-none mb-1">Certified</p>
+                <p className="text-2xl font-black text-blue-600 leading-none">ISO</p>
+                <p className="text-[10px] font-bold text-blue-600 leading-none mt-1">9001:2015</p>
+              </div>
+            </div>
+            <h3 className="text-xl font-bold text-gray-900">ISO 9001</h3>
+          </div>
+
+          {/* ISO 27001 */}
+          <div className="flex flex-col items-center">
+            <div className="w-28 h-28 rounded-full border-[6px] border-blue-600 bg-blue-600 text-white flex items-center justify-center mb-6 shadow-sm">
+              <div className="text-center">
+                <p className="text-3xl font-black leading-none">ISO</p>
+                <p className="text-sm font-bold mt-1">27001</p>
+              </div>
+            </div>
+            <h3 className="text-xl font-bold text-gray-900">ISO 27001</h3>
+          </div>
+
+          {/* SOC 2 */}
+          <div className="flex flex-col items-center">
+            <div className="w-24 h-28 bg-gradient-to-b from-gray-200 to-gray-400 rounded-b-3xl rounded-t-xl flex flex-col items-center justify-center mb-6 shadow-md border border-gray-300 relative">
+              <div className="absolute -top-4 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center shadow-sm">
+                <div className="w-3 h-4 border-2 border-white rounded-t-sm"></div>
+              </div>
+              <p className="text-xl font-black text-gray-800 mt-2">SOC 2</p>
+              <p className="text-sm font-bold text-gray-800">TYPE 2</p>
+            </div>
+            <h3 className="text-xl font-bold text-gray-900">SOC 2 TYPE 2</h3>
+          </div>
+
+          {/* HIPAA */}
+          <div className="flex flex-col items-center">
+            <div className="w-28 h-28 rounded-full bg-blue-700 flex items-center justify-center mb-6 shadow-sm">
+              <div className="text-white flex items-center justify-center">
+                <span className="text-4xl">⚕️</span>
+              </div>
+            </div>
+            <h3 className="text-xl font-bold text-gray-900">HIPAA</h3>
+          </div>
+
+          {/* AHIMA */}
+          <div className="flex flex-col items-center">
+            <div className="h-28 flex items-center justify-center mb-6">
+              <div className="text-center">
+                <p className="text-3xl font-black text-blue-500 tracking-tighter">AHIMA</p>
+                <p className="text-[9px] text-blue-500 mt-1">American Health Information<br/>Management Association</p>
+              </div>
+            </div>
+            <h3 className="text-xl font-bold text-gray-900">AHIMA</h3>
+          </div>
+
+          {/* AAPC */}
+          <div className="flex flex-col items-center">
+            <div className="w-28 h-28 rounded-full border-4 border-emerald-800 bg-emerald-800 text-white flex items-center justify-center mb-6 shadow-sm relative">
+              <div className="w-24 h-24 rounded-full border border-white flex items-center justify-center bg-white">
+                <p className="text-2xl font-black text-emerald-800">CPC</p>
+              </div>
+            </div>
+            <h3 className="text-xl font-bold text-gray-900">AAPC</h3>
+          </div>
+
+        </div>
+      </div>
     </div>
   );
 }
