@@ -4,25 +4,18 @@ import GlassCard from '../components/GlassCard';
 import SEO from '../components/SEO';
 
 export default function Gallery() {
-  const [images, setImages] = useState<string[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const res = await fetch('http://localhost:3001/api/gallery');
-        if (res.ok) {
-          const data = await res.json();
-          setImages(data);
-        }
-      } catch (err) {
-        console.error('Failed to load gallery', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchImages();
-  }, []);
+  const images = [
+    '/gallery/WhatsApp Image 2026-07-19 at 12.48.49 PM.jpeg',
+    '/gallery/WhatsApp Image 2026-07-19 at 12.48.50 PM (1).jpeg',
+    '/gallery/WhatsApp Image 2026-07-19 at 12.48.50 PM.jpeg',
+    '/gallery/WhatsApp Image 2026-07-19 at 12.48.51 PM (1).jpeg',
+    '/gallery/WhatsApp Image 2026-07-19 at 12.48.51 PM (2).jpeg',
+    '/gallery/WhatsApp Image 2026-07-19 at 12.48.51 PM.jpeg',
+    '/gallery/WhatsApp Image 2026-07-19 at 12.48.52 PM (1).jpeg',
+    '/gallery/WhatsApp Image 2026-07-19 at 12.48.52 PM.jpeg',
+    '/gallery/WhatsApp Image 2026-07-19 at 12.48.53 PM.jpeg'
+  ];
+  const loading = false;
 
   return (
     <div className="pt-48 pb-24 bg-white min-h-screen">
