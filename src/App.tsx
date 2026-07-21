@@ -10,6 +10,7 @@ import Team from './pages/Team';
 import Contact from './pages/Contact';
 import CaseStudies from './pages/CaseStudies';
 import Gallery from './pages/Gallery';
+import AdminPanel from './pages/AdminPanel';
 import PrivacyPolicy from './pages/legal/PrivacyPolicy';
 import TermsOfService from './pages/legal/TermsOfService';
 import HIPAACompliance from './pages/legal/HIPAACompliance';
@@ -29,6 +30,7 @@ function App() {
           <Route path="gallery" element={<Gallery />} />
           <Route path="case-studies" element={<CaseStudies />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="admin" element={<AdminPanel />} />
           
           {/* Legal & Security Routes */}
           <Route path="privacy-policy" element={<PrivacyPolicy />} />

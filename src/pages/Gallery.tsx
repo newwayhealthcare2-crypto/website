@@ -1,53 +1,71 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-
-const images = [
-  'WhatsApp Image 2026-07-19 at 12.48.49 PM.jpeg',
-  'WhatsApp Image 2026-07-19 at 12.48.50 PM (1).jpeg',
-  'WhatsApp Image 2026-07-19 at 12.48.50 PM.jpeg',
-  'WhatsApp Image 2026-07-19 at 12.48.51 PM (1).jpeg',
-  'WhatsApp Image 2026-07-19 at 12.48.51 PM (2).jpeg',
-  'WhatsApp Image 2026-07-19 at 12.48.51 PM.jpeg',
-  'WhatsApp Image 2026-07-19 at 12.48.52 PM (1).jpeg',
-  'WhatsApp Image 2026-07-19 at 12.48.52 PM.jpeg',
-  'WhatsApp Image 2026-07-19 at 12.48.53 PM.jpeg',
-];
+import React, { useState, useEffect } from 'react';
+import AnimatedText from '../components/AnimatedText';
+import GlassCard from '../components/GlassCard';
+import SEO from '../components/SEO';
 
 export default function Gallery() {
-  return (
-    <div className="pt-40 min-h-screen bg-gray-50 pb-20">
-      <div className="container mx-auto px-6 lg:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-16"
-        >
-          <h1 className="text-5xl font-extrabold text-gray-900 mb-6 font-primary">Our Gallery</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Take a glimpse into the vibrant culture, modern facilities, and dedicated team at New Way Healthcare.
-          </p>
-        </motion.div>
+  const [images, setImages] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {images.map((img, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: (idx % 3) * 0.1, duration: 0.5 }}
-              className="relative aspect-square overflow-hidden rounded-2xl shadow-lg group bg-white border-4 border-white"
-            >
-              <img
-                src={`/gallery/${img}`}
-                alt={`Gallery ${idx + 1}`}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-in-out"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-fluorescent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mix-blend-multiply" />
-            </motion.div>
-          ))}
-        </div>
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const res = await fetch('http://localhost:3001/api/gallery');
+        if (res.ok) {
+          const data = await res.json();
+          setImages(data);
+        }
+      } catch (err) {
+        console.error('Failed to load gallery', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchImages();
+  }, []);
+
+  return (
+    <div className="pt-48 pb-24 bg-white min-h-screen">
+      <SEO 
+        title="Gallery - See Us in Action" 
+        description="Browse our gallery to see New Way Healthcare Services in action, showcasing our events, infrastructure, and team."
+      />
+      
+      <div className="container mx-auto px-6 lg:px-12 mb-20 text-center max-w-4xl">
+        <h1 className="text-5xl lg:text-7xl font-extrabold mb-6 text-gray-900">
+          <AnimatedText text="Photo Gallery" />
+        </h1>
+        <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+          Take a look at our state-of-the-art infrastructure, team events, and daily operations.
+        </p>
+      </div>
+
+      <div className="container mx-auto px-6 lg:px-12">
+        {loading ? (
+          <div className="flex justify-center py-20">
+            <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        ) : images.length === 0 ? (
+          <GlassCard className="text-center py-20 max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Gallery is Empty</h3>
+            <p className="text-gray-600">We are currently updating our gallery with new photos. Check back soon!</p>
+          </GlassCard>
+        ) : (
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+            {images.map((src, i) => (
+              <div key={i} className="break-inside-avoid">
+                <div className="rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer bg-gray-50 border border-gray-100">
+                  <img 
+                    src={src} 
+                    alt={`Gallery Image ${i + 1}`} 
+                    loading="lazy"
+                    className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" 
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

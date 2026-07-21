@@ -8,9 +8,21 @@ import { useForm } from 'react-hook-form';
 export default function Contact() {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const onSubmit = (data: any) => {
-    console.log(data);
-    alert('Thank you for your message. We will get back to you shortly.');
+  const onSubmit = async (data: any) => {
+    try {
+      const response = await fetch('http://localhost:3001/api/inquiries', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (response.ok) {
+        alert('Thank you for your message. We will get back to you shortly.');
+      } else {
+        alert('Failed to send message. Please try again.');
+      }
+    } catch (err) {
+      alert('Network error. Please try again later.');
+    }
   };
 
   return (
