@@ -57,9 +57,9 @@ export default function Team() {
               <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-2xl mb-4 bg-white group-hover:scale-105 transition-transform duration-300">
                 <img src={teamMembers.ceo.img} alt={teamMembers.ceo.name} className="w-full h-full object-cover object-top" />
               </div>
-              <h3 className="text-2xl font-black text-gray-900">{teamMembers.ceo.name}</h3>
-              <p className="text-sm font-semibold text-gray-800">{teamMembers.ceo.creds}</p>
-              <p className="text-sm font-medium text-gray-700 mt-1">{teamMembers.ceo.role}</p>
+              <h3 className="text-2xl font-black text-white">{teamMembers.ceo.name}</h3>
+              <p className="text-sm font-semibold text-gray-300">{teamMembers.ceo.creds}</p>
+              <p className="text-sm font-medium text-gray-400 mt-1">{teamMembers.ceo.role}</p>
             </div>
           </div>
 
