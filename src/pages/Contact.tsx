@@ -1,6 +1,7 @@
 import React from 'react';
 import AnimatedText from '../components/AnimatedText';
 import GlassCard from '../components/GlassCard';
+import SEO from '../components/SEO';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 
@@ -14,6 +15,10 @@ export default function Contact() {
 
   return (
     <div className="pt-48 pb-24 bg-white">
+      <SEO 
+        title="Contact Us - Free Consultation" 
+        description="Ready to optimize your revenue cycle? Reach out to our team of experts for a free consultation."
+      />
       <div className="container mx-auto px-6 lg:px-12 mb-20 text-center max-w-4xl">
         <h1 className="text-5xl lg:text-7xl font-extrabold mb-6 text-gray-900">
           <AnimatedText text="Let's Talk" />

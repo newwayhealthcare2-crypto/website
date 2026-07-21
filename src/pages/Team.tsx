@@ -1,6 +1,7 @@
 import React from 'react';
 import AnimatedText from '../components/AnimatedText';
 import GlassCard from '../components/GlassCard';
+import SEO from '../components/SEO';
 import { Globe, Mail } from 'lucide-react';
 
 const team = [
@@ -14,8 +15,24 @@ const team = [
 ];
 
 export default function Team() {
+  const teamSchema = team.map(member => ({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": member.name,
+    "jobTitle": member.role,
+    "worksFor": {
+      "@type": "Organization",
+      "name": "New Way Healthcare Services"
+    }
+  }));
+
   return (
     <div className="pt-48 pb-24 bg-white">
+      <SEO 
+        title="Our Leadership Team" 
+        description="Meet the experts driving operational excellence at New Way Healthcare Services."
+        schema={teamSchema}
+      />
       <div className="container mx-auto px-6 lg:px-12 mb-20 text-center max-w-4xl">
         <h1 className="text-5xl lg:text-7xl font-extrabold mb-6 text-gray-900">
           <AnimatedText text="Leadership & Infrastructure" />

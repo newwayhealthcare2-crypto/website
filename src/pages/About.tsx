@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import AnimatedText from '../components/AnimatedText';
 import GlassCard from '../components/GlassCard';
+import SEO from '../components/SEO';
 import { Target, TrendingUp, Users } from 'lucide-react';
 
 export default function About() {
@@ -10,6 +11,10 @@ export default function About() {
   
   return (
     <div className="pt-48 pb-24 bg-white">
+      <SEO 
+        title="About Us - Healthcare Specialists" 
+        description="Learn about New Way Healthcare's mission to optimize healthcare operations globally with enterprise-grade solutions."
+      />
       {/* Header */}
       <div className="container mx-auto px-6 lg:px-12 mb-20 text-center max-w-4xl">
         <h1 className="text-5xl lg:text-7xl font-extrabold mb-6 text-gray-900">

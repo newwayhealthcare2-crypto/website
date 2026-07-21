@@ -2,11 +2,16 @@ import React from 'react';
 import AnimatedText from '../components/AnimatedText';
 import SecurityOverview from '../components/home/SecurityOverview';
 import GlassCard from '../components/GlassCard';
+import SEO from '../components/SEO';
 import { ShieldCheck, CheckCircle2 } from 'lucide-react';
 
 export default function Security() {
   return (
     <div className="pt-48 pb-24 bg-white">
+      <SEO 
+        title="Security & Compliance - HIPAA Certified" 
+        description="We employ industry-leading frameworks to ensure absolute compliance and data integrity for your protected health information."
+      />
       <div className="container mx-auto px-6 lg:px-12 mb-12 text-center max-w-4xl">
         <h1 className="text-5xl lg:text-7xl font-extrabold mb-6 text-gray-900">
           <AnimatedText text="Security & Compliance" />

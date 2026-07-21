@@ -1,6 +1,7 @@
 import React from 'react';
 import AnimatedText from '../components/AnimatedText';
 import GlassCard from '../components/GlassCard';
+import SEO from '../components/SEO';
 import { Stethoscope, BadgeDollarSign, ShieldPlus, FileText, ClipboardType, Activity, CheckCircle2 } from 'lucide-react';
 
 const servicesData = [
@@ -37,8 +38,34 @@ const servicesData = [
 ];
 
 export default function Services() {
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Medical Billing and Coding",
+    "provider": {
+      "@type": "Organization",
+      "name": "New Way Healthcare Services"
+    },
+    "description": "Comprehensive healthcare services including RCM, AR Management, Medical Coding, and Dental Billing.",
+    "areaServed": "US",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Healthcare BPO Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Medical Coding" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Accounts Receivable" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dental Billing" } }
+      ]
+    }
+  };
+
   return (
     <div className="pt-48 pb-24 bg-gray-50">
+      <SEO 
+        title="Our Services - Medical Billing & Coding" 
+        description="Comprehensive healthcare services including RCM, AR Management, Medical Coding, and Dental Billing."
+        schema={serviceSchema}
+      />
       {/* Header */}
       <div className="container mx-auto px-6 lg:px-12 mb-20 text-center max-w-4xl">
         <h1 className="text-5xl lg:text-7xl font-extrabold mb-6 text-gray-900">

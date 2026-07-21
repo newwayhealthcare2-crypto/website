@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import AnimatedText from '../components/AnimatedText';
 import GlassCard from '../components/GlassCard';
+import SEO from '../components/SEO';
 import { TrendingUp, Banknote, ShieldCheck, Zap, Cog, ArrowRight } from 'lucide-react';
 
 const benefits = [
@@ -38,6 +39,10 @@ export default function Solutions() {
 
   return (
     <div className="pt-48 pb-24 bg-white">
+      <SEO 
+        title="Solutions & Impact - Measurable Benefits" 
+        description="Discover how our specialized approach drives measurable business benefits and transforms healthcare operations."
+      />
       {/* Header */}
       <div className="container mx-auto px-6 lg:px-12 mb-20 text-center max-w-4xl">
         <h1 className="text-5xl lg:text-7xl font-extrabold mb-6 text-gray-900">
